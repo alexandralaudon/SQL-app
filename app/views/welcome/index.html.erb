@@ -1,1 +1,13 @@
 <h1>Hello, this is the welcome page </h1>
+
+<h1>BOOKS</h1>
+<% @books.each do |book| %>
+  <%= book.title %>
+  <br>
+<% end %>
+
+<h1>ALTERNATE STOCKS</h1>
+<% @alternate_stocks.each do |alt_stock| %>
+  <%= alt_stock.isbn %>
+  <br>
+<% end %>
