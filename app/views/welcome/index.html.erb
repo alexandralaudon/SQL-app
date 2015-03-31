@@ -1,10 +1,6 @@
-<h1>Hello, this is the welcome page </h1>
+<h1>ALL TABLE COLUMNS</h1>
 
-<h1>BOOKS</h1>
-<% @books.each do |book| %>
-  <%= book.title %>
-  <br>
-<% end %>
-
-<h1>ALTERNATE STOCKS</h1>
-<%= @alternate_stocks %>
+  <% all_tables.each do |table| %>
+    <br>
+    <%= "#{table.camelize}: #{table.constantize.column_names}" %>
+  <% end %>
