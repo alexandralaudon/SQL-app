@@ -2,5 +2,8 @@
 
   <% all_tables.each do |table| %>
     <br>
-    <%= "#{table.camelize}: #{table.constantize.column_names}" %>
+    <%= "#{table.camelize}:" %>
+    <% table.constantize.column_names.each do |column| %>
+      <%= link_to "#{column}",  %>
+    <% end %>
   <% end %>
