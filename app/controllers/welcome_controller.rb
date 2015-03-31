@@ -8,8 +8,8 @@ class WelcomeController < ApplicationController
   private
 
   def all_tables
-    @tables_array = ActiveRecord::Base.connection.tables.map do |table|
-      table.split('_').map(&:capitalize).join
+    ActiveRecord::Base.connection.tables.map do |table|
+      table.camelize
     end
   end
 

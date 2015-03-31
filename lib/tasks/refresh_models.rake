@@ -4,9 +4,9 @@ namespace :refresh_models do
 
       ActiveRecord::Base.connection.tables.each do |table|
         File.open("app/models/#{table}.rb", "w+") do |f|
-          f.write("class #{table.classify} < ActiveRecord::Base \n \nend")
+          f.write("class #{table.camelize} < ActiveRecord::Base \n \nend")
         end
-        puts "Created #{table.classify} model"
+        puts "Created #{table.camelize} model"
       end
     end
 
