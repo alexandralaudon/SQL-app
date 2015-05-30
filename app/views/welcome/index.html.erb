@@ -1,9 +1,29 @@
 <h1>ALL TABLE COLUMNS</h1>
-
+<!--
   <% all_tables.each do |table| %>
     <br>
+
     <%= "#{table.camelize}:" %>
     <% table.constantize.column_names.each do |column| %>
-      <%= link_to "#{column}",  %>
+      <%= column  %>
     <% end %>
+  <% end %>
+ -->
+
+
+  <nav class="nav padded">
+    <ul>
+      <% all_tables.each do |table| %>
+        <li class="active"><a id=table class="nav-section1" href="#section1"> <%= table %> </a></li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <% all_tables.each do |table| %>
+    <article>
+    <h1> <%= table.camelize %> </h1>
+    <% table.constantize.column_names.each do |attribute| %>
+      <p> <%= attribute %> </p>
+    <% end %>
+    </article>
   <% end %>

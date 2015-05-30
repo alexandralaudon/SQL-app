@@ -8,3 +8,7 @@ THINGS TO CONSIDER:
 - Need to create models based on "ActiveRecord::Base.connection.tables".  This is a list of all the models and I need to convert all my tables into models (including taking the '_' and converting the next letter to a capital letter)
 
 - Call on every column in every table via looping through "ActiveRecord::Base.connection.tables[i].column_names" ("i = ActiveRecord::Base.connection.tables.count"), which gather all the column names of all the tables into one view.
+
+- Build out the MVP for the dynamic tables interface - Downloaded Start Bootstrap Scrolling Nav, to start building a beautiful, clean GUI for selecting tables and columns.
+
+- Create a section on the right that is layered on top of the Bootstrap, so that selected attributes can be added appropriately.
