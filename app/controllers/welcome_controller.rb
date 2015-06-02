@@ -5,7 +5,6 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  private
 
   def all_tables
     ActiveRecord::Base.connection.tables.map do |table|
