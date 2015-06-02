@@ -1,29 +1,93 @@
-<h1>ALL TABLE COLUMNS</h1>
-<!--
-  <% all_tables.each do |table| %>
-    <br>
+<!DOCTYPE html>
+<html lang="en">
 
-    <%= "#{table.camelize}:" %>
-    <% table.constantize.column_names.each do |column| %>
-      <%= column  %>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SQL App</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <a class="navbar-brand page-scroll" href="#page-top">Select Tables</a>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                  <li class="hidden">
+                      <a class="page-scroll" href="#page-top"></a>
+                  </li>
+                  <% all_tables.each do |table| %>
+                    <li>
+                        <a class="page-scroll" href='<%= "##{table}" %>'> <%= table %> </a>
+                    </li>
+                  <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Scrolling Nav</h1>
+                    <p><strong>Usage Instructions:</strong> Make sure to include the <code>scrolling-nav.js</code>, <code>jquery.easing.min.js</code>, and <code>scrolling-nav.css</code> files. To make a link smooth scroll to another section on the page, give the link the <code>.page-scroll</code> class and set the link target to a corresponding ID on the page.</p>
+
+                    <h1>This will be the information section of the GEM</h1>
+                    <p><strong>Usage Instructions:</strong> Click on any of the table names listed here, and be sure to select the columns so they appear in the red box on the right-hand side.</p>
+
+
+                    <h1>This will be the information section of the GEM</h1>
+                    <p><strong>Usage Instructions:</strong> I am fascinating.</p>
+
+                    <a class="btn btn-default page-scroll" href="#<%= all_tables.first %>">Click Me to Scroll Down!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <% all_tables.each do |table| %>
+      <section id="<%= table %>" class="section">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <h1> <%= table %> </h1>
+                      <% table.constantize.column_names.each do |attribute| %>
+                        <p> <%= attribute %> </p>
+                      <% end %>
+                  </div>
+              </div>
+          </div>
+      </section>
     <% end %>
-  <% end %>
- -->
 
+</body>
 
-  <nav class="nav padded">
-    <ul>
-      <% all_tables.each do |table| %>
-        <li class="active"><a id=table class="nav-section1" href="#section1"> <%= table %> </a></li>
-      <% end %>
-    </ul>
-  </nav>
-
-  <% all_tables.each do |table| %>
-    <article>
-    <h1> <%= table.camelize %> </h1>
-    <% table.constantize.column_names.each do |attribute| %>
-      <p> <%= attribute %> </p>
-    <% end %>
-    </article>
-  <% end %>
+</html>
